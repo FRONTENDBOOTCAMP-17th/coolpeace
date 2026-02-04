@@ -1,14 +1,36 @@
-.main {
+.container {
+  background: transparent;
   position: relative;
-  z-index: 3;
+  margin: 40px 24px;
+}
+
+.main {
+  display: grid;
+  justify-items: start;
+  align-items: start;
+}
+
+.p {
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.wrapper {
+  width: 150px;
+  background: black;
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+}
+
+.download {
+  border: none;
+  background: black;
+  color: white;
 }
 
 .taxi {
   position: absolute;
-  z-index: 2; /* 텍스트보다 뒤 */
-}
-
-svg {
-  position: absolute;
-  z-index: 1; /* 제일 뒤 */
+  z-index: 1;
 }
