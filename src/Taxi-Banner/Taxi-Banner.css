@@ -1,0 +1,14 @@
+.main {
+  position: relative;
+  z-index: 3;
+}
+
+.taxi {
+  position: absolute;
+  z-index: 2; /* 텍스트보다 뒤 */
+}
+
+svg {
+  position: absolute;
+  z-index: 1; /* 제일 뒤 */
+}
