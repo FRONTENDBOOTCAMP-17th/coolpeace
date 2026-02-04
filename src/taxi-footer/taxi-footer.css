@@ -1,0 +1,37 @@
+.footer-wrapper {
+  background: #000 !important;
+
+  width: 100%;
+
+  /* 마진 상쇄 현상 방지 */
+  display: flex;
+  overflow: hidden;
+}
+
+.container-footer {
+  color: white;
+
+  box-sizing: border-box;
+
+  /* 상하좌우 margin*/
+
+  margin: clamp(40px, 4.79vw + 18.35px, 56px) clamp(24px, 2.39vw + 13.17px, 32px);
+
+  /* 최소 높이 설정 */
+
+  min-height: clamp(576px, 28.74vw + 446.1px, 672px);
+}
+
+/* 786px 이상 (웹 기준) */
+
+@media (min-width: 786px) {
+  .container-footer {
+    /* 웹에서는 상하좌우가 동일하므로 더 간결하게 */
+
+    margin: clamp(56px, 2.18vw + 38.8px, 64px);
+
+    /* 웹 최소 높이 */
+
+    min-height: clamp(672px, 19.4vw + 519.5px, 743px);
+  }
+}
