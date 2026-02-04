@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+
+.qna-item {
+  width: 452px;
+}
+
+.qna-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-sizing: 56px;
+  border-bottom: 1px solid rgba(137, 137, 137, 0.3);
+}
+
+.qna-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: currentColor;
+  padding: 16px 20px;
+}
+
+.qna-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 36px;
+  width: 24px;
+  height: 24px;
+}
+
+.qna-content {
+  padding: 0 20px 24px 20px;
+  border-bottom: 1px solid rgba(151, 99, 99, 0.3);
+}
+
+.content-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.content-list li {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-left: -20px;
+  color: #444;
+}
+.content-summary {
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.content-footer {
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+.path-guide {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+
+  border-bottom: 1px solid gray;
+}
