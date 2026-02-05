@@ -7,9 +7,9 @@
     <title>nav</title>
   </head>
   <body>
-    <ul class="utility-bar inline-block d">
+    <ul class="utility-bar logo">
       <li>
-        <a href="/"
+        <a class="logo-ut" href="/"
           ><svg xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 39 39" fill="none">
             <path d="M31.7203 13.6218H26.52V29.4667H31.7203V13.6218Z" fill="url(#paint0_linear_14227_993)" />
             <path d="M39 9.02222H19.2402V13.6227H39V9.02222Z" fill="url(#paint1_linear_14227_993)" />
@@ -33,12 +33,33 @@
             </defs></svg
         ></a>
       </li>
-      <li><a href="/">기업 정보</a></li>
-      <li><a href="/">안전</a></li>
-      <li><a href="/">고객지원</a></li>
-      <li><a href="/">차량 서비스</a></li>
-      <li><a href="/">기사지원</a></li>
-      <li class="push-right">
+      <li class="menu-item">
+        <div class="menu-select-wrapper">
+          <select name="company-info" aria-label="기업 정보">
+            <option value="" disabled selected>기업 정보</option>
+          </select>
+          <span class="arrow"
+            ><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 9L12 15L6 9" stroke="white" stroke-width="2" />
+            </svg>
+          </span>
+        </div>
+      </li>
+      <li class="menu-item"><a href="/">안전</a></li>
+      <li class="menu-item"><a href="/">고객지원</a></li>
+      <li class="menu-item"><a href="/">차량 서비스</a></li>
+      <li class="menu-item">
+        <div class="menu-select-wrapper">
+          <select name="driver-support" aria-label="기사지원">
+            <option value="" disabled selected>기사지원</option>
+          </select>
+          <span class="arrow"
+            ><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 9L12 15L6 9" stroke="white" stroke-width="2" /></svg
+          ></span>
+        </div>
+      </li>
+      <li class="push-right lang-item">
         <div class="lang-wrapper">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M19.5 6L18.0333 7.1C17.6871 7.35964 17.2661 7.5 16.8333 7.5H13.475C12.8775 7.5 12.3312 7.83761 12.064 8.37206C11.7342 9.03161 11.9053 9.83161 12.476 10.2986L14.476 11.9349C16.0499 13.2227 16.8644 15.22 16.6399 17.2412L16.6199 17.4206C16.5403 18.1369 16.3643 18.8392 16.0967 19.5083L15.5 21" stroke="white" />
@@ -55,7 +76,15 @@
           </select>
         </div>
       </li>
-      <li><button class="register">가입하기</button></li>
+      <li class="mobile-group">
+        <button class="register-item">가입하기</button>
+        <div class="mobile-menu-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 10L6 10" stroke="white" stroke-width="2" stroke-linecap="round" />
+            <path d="M18 14L6 14" stroke="white" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </div>
+      </li>
     </ul>
   </body>
 </html>
