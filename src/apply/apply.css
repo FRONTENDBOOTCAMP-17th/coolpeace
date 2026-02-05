@@ -2,6 +2,7 @@ html,
 body {
   inline-size: 100%;
   block-size: 100%;
+  margin: 0;
 }
 
 h2 {
@@ -23,8 +24,9 @@ a {
 
 /* =================== */
 /* =================== */
-
-/* =================== */
+.desktop-wrapper {
+  display: contents;
+}
 
 .apply {
   display: flex;
@@ -106,7 +108,7 @@ fieldset {
   /* .field 클래스 중첩 */
   .field {
     display: flex;
-    flex-direction: column; /* 메시지를 아래로 보내기 위해 flex 설정 */
+    flex-direction: column;
 
     input,
     select {
@@ -116,48 +118,53 @@ fieldset {
       box-sizing: border-box;
       border: 1px solid var(--border-borderTransparent, rgba(137, 137, 137, 0.3));
       background: var(--tertiary, #f5f5f5);
-      transition: all 0.2s ease; /* 부드러운 색상 전환 */
+      transition: all 0.2s ease;
 
-      /* 사용자가 입력을 마치고 포커스를 뗐는데(blur) 내용이 올바르지 않을 때 */
+      /* 1. 브라우저 기본 포커스 링 제거 */
+      outline: none;
+
+      /* 2. 클릭(포커스)했을 때 스타일 */
+      &:focus {
+        border-color: #000; /* 원하는 색상으로 지정 (예: 검정색) */
+        background-color: #fff; /* 포커스 시 배경색 변경 (선택사항) */
+        /* 더 선명한 느낌을 원하면 아래 주석 해제 */
+        /* box-shadow: 0 0 0 1px #000; */
+      }
+
+      /* 3. 에러 발생 시 스타일 (포커스보다 우선순위 높게 유지) */
       &:user-invalid {
-        border: 1px solid #e22e2e;
-        background: rgba(226, 46, 46, 0.05); /* 투명한 빨간 배경 */
+        border: 1px solid #e22e2e !important;
+        background: rgba(226, 46, 46, 0.05) !important;
       }
     }
 
     /* 에러 메시지 스타일 */
     .error-text {
-      display: none; /* 기본적으로 숨김 */
+      display: none;
       color: #e22e2e;
       font-size: 12px;
-      margin-top: 6px;
+      margin-top: 3px;
       font-weight: 500;
     }
 
-    /* 유효하지 않은 input이 안에 있을 때 에러 메시지 표시 */
+    /* 유효하지 않은 상태일 때 메시지 표시 */
     &:has(input:user-invalid, select:user-invalid) {
       .error-text {
-        display: block; /* 공간을 차지하며 나타남 */
+        display: block;
       }
     }
 
-    /* (선택사항) 유효할 때 피드백을 주고 싶다면 */
+    /* 유효할 때 피드백 */
     input:user-valid {
       border-color: #28a745;
     }
 
     &.half {
-      /* 기본적으로 1컬럼 차지 */
+      grid-column: span 1;
     }
 
     &.full {
-      /* 한 줄을 다 차지하도록 설정 */
       grid-column: span 2;
-    }
-
-    input {
-      border: 1px solid var(--border-borderTransparent, rgba(137, 137, 137, 0.3));
-      background: var(--tertiary, #f5f5f5);
     }
   }
 }
@@ -225,5 +232,40 @@ fieldset {
   /* IE 10, 11에서 화살표 숨기기 */
   &::-ms-expand {
     display: none;
+  }
+}
+
+/* =========== */
+/* 태블릿 사이즈 */
+/* =========== */
+@media (min-width: 850px) {
+  .apply-header {
+    font-size: 37.897px;
+    font-weight: 700;
+    line-height: 140%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .desktop-wrapper {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .apply {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    gap: 284px;
+    padding: 64px;
+    max-inline-size: 1280px;
+    max-block-size: 733px;
+
+    .apply-header {
+      white-space: nowrap;
+    }
   }
 }
