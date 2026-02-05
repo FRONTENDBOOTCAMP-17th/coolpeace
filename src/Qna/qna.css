@@ -2,8 +2,17 @@
   box-sizing: border-box;
 }
 
+.qna-title {
+  width: 100%;
+  max-width: 452px;
+  margin-bottom: 36px;
+  font-size: 21px;
+}
+
 .qna-item {
-  width: 452px;
+  width: 100%;
+  max-width: 452px;
+  margin: 0 auto;
 }
 
 .qna-header {
@@ -65,4 +74,23 @@
   line-height: 150%;
 
   border-bottom: 1px solid gray;
+}
+/* 태블릿 */
+@media (min-width: 850px) {
+  .qna-item {
+    width: 786px;
+    max-width: 100%;
+  }
+  .qna-title {
+    font-size: 28px;
+  }
+}
+/* 데스크탑 */
+@media (min-width: 1680px) {
+  .qna-item {
+    width: 1280px;
+  }
+  .qna-title {
+    font-size: 38px;
+  }
 }
