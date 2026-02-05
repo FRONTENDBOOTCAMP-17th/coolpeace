@@ -3,9 +3,10 @@
   margin: 0;
 }
 
-body {
+.qna {
   padding: 64px;
 }
+
 .qna-title {
   width: 100%;
   max-width: 452px;
@@ -96,7 +97,7 @@ body {
   .qna-title {
     font-size: 28px;
   }
-  body {
+  .qna {
     padding: 56px 32px;
   }
 }
@@ -108,7 +109,7 @@ body {
   .qna-title {
     font-size: 38px;
   }
-  body {
+  .qna {
     padding: 40px 24px;
   }
 }
