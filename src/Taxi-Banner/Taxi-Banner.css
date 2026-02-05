@@ -1,0 +1,36 @@
+.container {
+  background: transparent;
+  position: relative;
+  margin: 40px 24px;
+}
+
+.main {
+  display: grid;
+  justify-items: start;
+  align-items: start;
+}
+
+.p {
+  color: black;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.wrapper {
+  width: 150px;
+  background: black;
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+}
+
+.download {
+  border: none;
+  background: black;
+  color: white;
+}
+
+.taxi {
+  position: absolute;
+  z-index: 1;
+}

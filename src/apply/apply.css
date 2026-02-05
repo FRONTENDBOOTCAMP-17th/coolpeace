@@ -1,0 +1,271 @@
+html,
+body {
+  inline-size: 100%;
+  block-size: 100%;
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.sr-only {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* =================== */
+/* =================== */
+.desktop-wrapper {
+  display: contents;
+}
+
+.apply {
+  display: flex;
+  padding: 40px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.apply-header {
+  color: var(--contents-contentPrimary, #000);
+
+  /* Heading/XXL */
+  font-family: Pretendard;
+  font-size: 28.43px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%; /* 53.056px */
+  margin-bottom: 36px;
+}
+.apply-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 36px;
+  align-self: stretch;
+}
+
+.form-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+
+  /* Label/Large */
+  .welcome-driver {
+    color: var(--contents-contentPrimary, #000);
+    margin: 0;
+
+    /* Label/Large */
+    font-family: Pretendard;
+    font-size: 21.328px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 31.992px */
+  }
+
+  .more_link {
+    color: var(--contents-contentPrimary, #000);
+
+    /* Label/Medium */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 24px */
+    border-bottom: 1px solid black;
+  }
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+
+  legend {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  /* .field 클래스 중첩 */
+  .field {
+    display: flex;
+    flex-direction: column;
+
+    input,
+    select {
+      width: 100%;
+      height: 50px;
+      padding: 0 12px;
+      box-sizing: border-box;
+      border: 1px solid var(--border-borderTransparent, rgba(137, 137, 137, 0.3));
+      background: var(--tertiary, #f5f5f5);
+      transition: all 0.2s ease;
+
+      /* 1. 브라우저 기본 포커스 링 제거 */
+      outline: none;
+
+      /* 2. 클릭(포커스)했을 때 스타일 */
+      &:focus {
+        border-color: #000; /* 원하는 색상으로 지정 (예: 검정색) */
+        background-color: #fff; /* 포커스 시 배경색 변경 (선택사항) */
+        /* 더 선명한 느낌을 원하면 아래 주석 해제 */
+        /* box-shadow: 0 0 0 1px #000; */
+      }
+
+      /* 3. 에러 발생 시 스타일 (포커스보다 우선순위 높게 유지) */
+      &:user-invalid {
+        border: 1px solid #e22e2e !important;
+        background: rgba(226, 46, 46, 0.05) !important;
+      }
+    }
+
+    /* 에러 메시지 스타일 */
+    .error-text {
+      display: none;
+      color: #e22e2e;
+      font-size: 12px;
+      margin-top: 3px;
+      font-weight: 500;
+    }
+
+    /* 유효하지 않은 상태일 때 메시지 표시 */
+    &:has(input:user-invalid, select:user-invalid) {
+      .error-text {
+        display: block;
+      }
+    }
+
+    /* 유효할 때 피드백 */
+    input:user-valid {
+      border-color: #28a745;
+    }
+
+    &.half {
+      grid-column: span 1;
+    }
+
+    &.full {
+      grid-column: span 2;
+    }
+  }
+}
+
+.agree-message {
+  color: var(--contents-contentPrimary, #000);
+
+  /* Paragraph/Small */
+  font-family: Pretendard;
+  font-size: 12.003px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 19.205px */
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+
+  .join {
+    display: block;
+    inline-size: 104px;
+    block-size: 56px;
+    font-style: normal;
+    vertical-align: middle;
+    padding: 16px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+
+    background: var(--primary, #000);
+    color: white;
+  }
+
+  .already-join {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .have {
+    color: var(--contents-contentPrimary, #000);
+
+    /* Paragraph/Small */
+    font-family: Pretendard;
+    font-size: 12.003px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%; /* 19.205px */
+  }
+
+  .login-now {
+    color: var(--black);
+    padding: 4px;
+    border-bottom: 1px solid var(--contents-contentTertiary, #a6a6a6);
+  }
+}
+
+.national-select {
+  /* 브라우저 기본 스타일 제거 */
+  -webkit-appearance: none; /* 크롬, 사파리, 엣지 */
+  -moz-appearance: none; /* 파이어폭스 */
+  appearance: none; /* 표준 속성 */
+
+  /* IE 10, 11에서 화살표 숨기기 */
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+/* =========== */
+/* 태블릿 사이즈 */
+/* =========== */
+@media (min-width: 850px) {
+  .apply-header {
+    font-size: 37.897px;
+    font-weight: 700;
+    line-height: 140%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .desktop-wrapper {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .apply {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    gap: 284px;
+    padding: 64px;
+    max-inline-size: 1280px;
+    max-block-size: 733px;
+
+    .apply-header {
+      white-space: nowrap;
+    }
+  }
+}

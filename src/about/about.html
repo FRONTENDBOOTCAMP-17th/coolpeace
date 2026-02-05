@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taxi About Page</title>
+    <link rel="stylesheet" href="/src/about/about.css" />
+  </head>
+  <body>
+    <!-- About 섹션 시작 -->
+    <main id="main-content">
+      <!-- About 카드 영역 -->
+      <section class="about-set" aria-labelledby="about-set-title">
+        <!-- 스크린 리더용 섹션 제목 (화면에는 보이지 않음) -->
+        <h2 id="about-set-title" class="sr-only">UT 회사 정보 및 소식</h2>
+
+        <!-- 회사소개 카드 -->
+        <article class="about-card">
+          <!-- 아이콘 -->
+          <svg class="about-card__icon" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 18.7711V10.7711M8 18.7711L1.83752 14.3693C1.42695 14.0761 1.22166 13.9295 1.11083 13.7141C1 13.4987 1 13.2464 1 12.7419V5.77112M8 18.7711L14.1625 14.3693C14.573 14.0761 14.7783 13.9295 14.8892 13.7141C15 13.4987 15 13.2464 15 12.7419V5.77112M8 10.7711L1 5.77112M8 10.7711L15 5.77112M1 5.77112L6.83752 1.60146C7.39886 1.2005 7.67953 1.00002 8 1.00002C8.32047 1.00002 8.60114 1.2005 9.16248 1.60146L15 5.77112" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+          </svg>
+
+          <!-- 카드 제목 -->
+          <h3 class="about-card__title">회사소개</h3>
+
+          <!-- 카드 설명 -->
+          <p class="about-card__desc">UT의 회사 연혁과 핵심 가치 및 UT가 창출하는 다양한 기회에 대해 알아보세요.</p>
+
+          <!-- 자세히 보기 링크 -->
+          <!-- (화면에는 '자세히 보기'만 보이고 스크린 리더에는 '회사소개 자세히 보기'로 읽힘) -->
+          <a href="/about/company" class="about-card__link" aria-label="회사소개 자세히 보기">자세히 보기</a>
+        </article>
+
+        <!-- 뉴스룸 카드 -->
+        <article class="about-card">
+          <!-- 아이콘 -->
+          <svg class="about-card__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="5" y="4" width="14" height="17" stroke="currentColor" rx="2" stroke-width="2" />
+            <path d="M9 9H15" stroke="black" stroke-width="2" stroke-linecap="round" />
+            <path d="M9 13H15" stroke="black" stroke-width="2" stroke-linecap="round" />
+            <path d="M9 17H13" stroke="black" stroke-width="2" stroke-linecap="round" />
+          </svg>
+
+          <!-- 카드 제목 -->
+          <h3 class="about-card__title">뉴스룸</h3>
+
+          <!-- 카드 설명 -->
+          <p class="about-card__desc">UT의 회사 연혁과 핵심 가치 및 UT가 창출하는 다양한 기회에 대해 알아보세요.</p>
+
+          <!-- 자세히 보기 링크 -->
+          <a href="/about/news" class="about-card__link" aria-label="뉴스룸 자세히 보기">자세히 보기</a>
+        </article>
+      </section>
+    </main>
+    <!-- About 섹션 끝 -->
+  </body>
+</html>

@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.qna {
+  padding: 64px;
+}
+
+.qna-title {
+  width: 100%;
+  max-width: 452px;
+  margin-bottom: 36px;
+  font-size: 21px;
+}
+
+.qna-item {
+  width: 100%;
+  max-width: 452px;
+  margin: 0 auto;
+}
+
+.qna-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-sizing: 56px;
+  border-bottom: 1px solid rgba(137, 137, 137, 0.3);
+}
+.qna-header-minus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-sizing: 56px;
+}
+
+.qna-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: currentColor;
+  padding: 16px 20px;
+}
+
+.qna-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 36px;
+  width: 24px;
+  height: 24px;
+}
+
+.qna-content {
+  padding: 24px;
+  border-bottom: 1px solid rgba(151, 99, 99, 0.3);
+}
+
+.content-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.content-list li {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-left: -20px;
+  color: #444;
+}
+.content-summary {
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.content-footer {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+.path-guide {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+
+  border-bottom: 1px solid gray;
+}
+/* 태블릿 */
+@media (min-width: 850px) {
+  .qna-item {
+    width: 786px;
+    max-width: 100%;
+  }
+  .qna-title {
+    font-size: 28px;
+  }
+  .qna {
+    padding: 56px 32px;
+  }
+}
+/* 데스크탑 */
+@media (min-width: 1680px) {
+  .qna-item {
+    width: 1280px;
+  }
+  .qna-title {
+    font-size: 38px;
+  }
+  .qna {
+    padding: 40px 24px;
+  }
+}
