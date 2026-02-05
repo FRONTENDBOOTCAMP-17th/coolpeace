@@ -4,8 +4,8 @@ import navHTML from './nav/nav.html?raw';
 import aboutHTML from './about/about.html?raw';
 import downloadHTML from './download/download.html?raw';
 import qnaHTML from './qna/qna.html?raw';
-// import applyHTML from './apply/apply.html?raw';
-// import footerHTML from './taxi-footer/taxi-footer.html?raw';
+import applyHTML from './apply/apply.html?raw';
+import footerHTML from './taxi-footer/taxi-footer.html?raw';
 
 // 2. CSS 임포트
 import './style.css';
@@ -26,5 +26,5 @@ render('#nav', navHTML);
 render('#about', aboutHTML);
 render('#download', downloadHTML);
 render('#qna', qnaHTML);
-// render('#apply', applyHTML);
-// render('#footer', footerHTML);
+render('#apply', applyHTML);
+render('#footer', footerHTML);
