@@ -1,6 +1,7 @@
 /* CSS 스타일을 작성해 주세요. */
 @import './nav/nav.css';
 @import './about/about.css';
+@import './banner_oej/banner_oej.css';
 @import './download/download.css';
 @import './qna/qna.css';
 @import './apply/apply.css';
