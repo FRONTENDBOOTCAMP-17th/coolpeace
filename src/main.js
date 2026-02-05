@@ -1,6 +1,6 @@
 // 1. 각 섹션 HTML을 문자열(raw)로 임포트 (Vite 전용?)
 import navHTML from './nav/nav.html?raw';
-// import bannerHTML from './Taxi-Banner/Taxi-Banner.html?raw';
+import bannerHTML from './banner_oej/banner_oej.html?raw';
 import aboutHTML from './about/about.html?raw';
 import downloadHTML from './download/download.html?raw';
 import qnaHTML from './qna/qna.html?raw';
@@ -22,7 +22,7 @@ const render = (selector, html) => {
 
 // 4. 각 섹션에 주입
 render('#nav', navHTML);
-// render('#banner', bannerHTML);
+render('#banner', bannerHTML);
 render('#about', aboutHTML);
 render('#download', downloadHTML);
 render('#qna', qnaHTML);
