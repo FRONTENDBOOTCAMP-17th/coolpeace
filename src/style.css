@@ -1,1 +1,18 @@
-/* CSS 스타일을 작성해 주세요. */ 
+/* CSS 스타일을 작성해 주세요. */
+
+/* 각 폴더에 있는 CSS 파일들을 불러옵니다 */
+@import './nav/nav.css';
+@import './about/about.css';
+@import './download/download.css';
+@import './qna/qna.css';
+@import './apply/apply.css';
+@import './apply/apply_color.css';
+@import './taxi-footer/taxi-footer.css';
+
+/* 만약 폰트 파일도 있다면 */
+@import './SUIT-Variable.css';
+
+/* 기존 style.css의 내용들... */
+body {
+  margin: 0;
+}
