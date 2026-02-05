@@ -19,7 +19,7 @@
 .about-set {
   display: flex; /* 카드들을 가로로 나열 */
   max-width: 1280px; /* 너무 넓어지지 않도록 최대 너비 제한 */
-  padding: 64px 0; /* 섹션 위아래 여백 */
+  padding: 64px; /* 섹션 위아래 여백 */
   justify-content: center; /* 카드 묶음을 중앙 정렬 */
   gap: 36px; /* 카드와 카드 사이 간격 */
   margin: 0 auto; /* 컨테이너 자체를 화면 중앙에 배치 */
@@ -35,7 +35,7 @@
   gap: 12px; /* 카드 내부 요소 간 간격 */
   flex: 1 0 0;
   align-self: stretch;
-  width: 278px; /* 피그마 기준 카드 너비 */
+  /* max-width: 278px; 피그마 기준 카드 너비 */
   background: var(--secondary, #fff);
 }
 
@@ -99,4 +99,26 @@
   cursor: pointer; /* 마우스 올리면 클릭 가능 표시 */
 }
 
-/* 반응형 화면 구현 */
+/* 반응형 최적화 */
+/* 850px 이하일 때 (태블릿 & 모바일 통합) */
+
+@media (max-width: 850px) {
+  .about-set {
+    padding: 56px 32px;
+    flex-direction: column; /* 가로 배치 → 세로 배치 */
+    align-items: flex-start;
+  }
+
+  .about-card {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* 모바일 500px 이하일 때 */
+@media (max-width: 500px) {
+  /* 카드들을 세로로 쌓고 중앙 정렬 */
+  .about-set {
+    padding: 40px 24px;
+  }
+}
