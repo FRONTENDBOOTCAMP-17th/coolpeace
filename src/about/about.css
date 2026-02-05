@@ -1,55 +1,62 @@
-/* 스크린 리더 전용 클래스
-   - 화면에는 보이지 않지만
-   - 스크린 리더에는 읽히도록 처리 */
+/* 스크린 리더 전용 클래스 (.sr-only)
+   - 화면에는 보이지 않음
+   - 스크린 리더(보조기기)에는 읽힘
+   - 접근성(A11y)을 위한 필수 패턴
+   - 아이콘 버튼의 숨겨진 설명 텍스트 등에 사용 */
 .sr-only {
-  position: absolute; /* 일반 레이아웃 흐름에서 제거 */
-  width: 1px; /* 화면에 거의 안 보이게 최소 크기 */
+  position: absolute; /* 문서 흐름에서 제거하여 다른 요소 배치에 영향 없음 */
+  /* 실제 화면에서는 거의 보이지 않는 최소 크기 */
+  width: 1px;
   height: 1px;
   padding: 0; /* 여백 제거 */
-  margin: -1px; /* 화면 밖으로 밀어냄 */
-  overflow: hidden; /* 넘치는 내용 숨김 */
-  clip: rect(0, 0, 0, 0); /* 화면에 그려지는 영역 자체를 잘라냄 */
-  white-space: nowrap; /* 줄바꿈 방지 */
-  border-width: 0; /* 테두리 제거 */
+  margin: -1px; /* 화면 바깥으로 밀어내어 시각적으로 숨김 */
+  overflow: hidden; /* 넘치는 내용이 보이지 않도록 숨김 */
+  clip: rect(0, 0, 0, 0); /* 렌더링 영역 자체를 잘라 화면에 표시되지 않게 처리 */
+  white-space: nowrap; /* 줄바꿈으로 인해 영역이 커지는 현상 방지 */
+  border-width: 0; /* 불필요한 테두리 제거 */
 }
 
-/* About 카드 전체를 감싸는 섹션 컨테이너
-   - 카드들을 가로로 배치
-   - 전체를 화면 중앙에 정렬 */
+/* About 카드 전체를 감싸는 컨테이너
+   - 여러 개의 카드 묶음
+   - 기본은 가로 배치
+   - 화면 중앙 정렬 */
 .about-set {
   display: flex; /* 카드들을 가로로 나열 */
-  max-width: 1280px; /* 너무 넓어지지 않도록 최대 너비 제한 */
-  padding: 64px; /* 섹션 위아래 여백 */
-  justify-content: center; /* 카드 묶음을 중앙 정렬 */
-  gap: 36px; /* 카드와 카드 사이 간격 */
-  margin: 0 auto; /* 컨테이너 자체를 화면 중앙에 배치 */
+  max-width: 1280px; /* 큰 화면에서도 너무 넓어지지 않도록 제한 */
+  padding: 64px; /* 섹션 내부 여백 */
+  justify-content: center; /* 카드 묶음을 가운데 정렬 */
+  gap: 36px; /* 카드 간 간격 */
+  margin: 0 auto; /* 컨테이너 자체를 중앙 배치 */
 }
 
 /* 개별 About 카드
-   - 아이콘, 제목, 설명, 링크를 세로로 배치 */
+   - 아이콘, 제목, 설명, 링크를
+     세로 방향으로 배치 */
 .about-card {
   display: flex; /* 내부 요소 정렬을 위해 flex 사용 */
   flex-direction: column; /* 세로 방향으로 쌓기 */
-  align-items: flex-start; /* 모든 요소를 왼쪽 정렬 */
+  align-items: flex-start; /* 카드 내부 요소 왼쪽 정렬 */
 
   gap: 12px; /* 카드 내부 요소 간 간격 */
-  flex: 1 0 0;
-  align-self: stretch;
-  /* max-width: 278px; 피그마 기준 카드 너비 */
-  background: var(--secondary, #fff);
+  flex: 1 0 0; /* 모든 카드가 동일한 비율로 확장 */
+  align-self: stretch; /* 부모 높이에 맞춰 늘어남 */
+  /* max-width: 278px; */
+  /* 피그마 기준 카드 너비 (현재는 유동형) */
+  background: var(--secondary, #fff); /* 카드 배경색 */
 }
 
-/* 카드 상단 아이콘 */
+/* 카드 상단 아이콘 (SVG)
+   - 피그마 데스크탑 기준 */
 .about-card__icon {
-  /* 피그마 데스크탑 수치 */
+  /* 아이콘 크기 */
   width: 14px;
   height: 18px;
 
-  /* 선 굵기와 색상 */
+  /* SVG 선 두께 */
   stroke-width: 2px;
-  color: var(--primary, #000); /* HTML의 stroke="currentColor"와 연결 */
+  color: var(--primary, #000); /* HTML의 stroke="currentColor"와 연결되어 아이콘 색상 제어 */
 
-  /* SVG 내부 path에 스타일이 적용되도록 설정 */
+  /* inline SVG 여백 제거 */
   display: block;
 }
 
@@ -61,21 +68,23 @@
   font-family: Pretendard;
   font-size: 21px; /* 데스크탑 기준 제목 크기 */
   font-style: normal;
-  font-weight: 600; /* 굵은 글씨로 강조 */
-  line-height: 150%; /* 31.992px */
+  font-weight: 600; /* 제목 굵은 글씨로 강조 */
+  line-height: 150%; /* 가독성을 위한 줄 간격 */
+  /* 피그마 기준 31.992px */
   margin: 0; /* h 태그 기본 마진 제거 */
 }
 
-/* 카드 설명 문구
-   - 제목을 보충하는 설명 텍스트 */
+/* 카드 설명 텍스트
+   - 제목을 보충하는 본문 텍스트 */
 .about-card__desc {
   color: var(--contents-contentPrimary, #000);
-  align-self: stretch;
+  align-self: stretch; /* 카드 너비 전체 사용 */
   font-family: Pretendard;
   font-size: 16px; /* 본문 텍스트 크기 */
   font-style: normal;
   font-weight: 400;
-  line-height: 160%; /* 25.6px */
+  line-height: 160%; /* 긴 문장 가독성 확보 */
+  /* 피그마 기준 25.6px */
   margin: 0; /* p 태그 기본 마진 제거 */
 }
 
@@ -87,38 +96,38 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 150%; /* 24px */
+  line-height: 150%; /* 피그마 기준 24px */
 
-  display: inline-flex;
+  display: inline-flex; /* 텍스트 + 아이콘 확장 대비 */
   align-items: flex-start;
-  padding: 4px;
+  padding: 4px; /* 클릭 영역 확보 */
 
-  text-decoration: none;
-  border-bottom: 1px solid var(--contents-contentPrimary, #000);
+  text-decoration: none; /* 기본 밑줄 제거 */
+  border-bottom: 1px solid var(--contents-contentPrimary, #000); /* 링크임을 인지할 수 있는 시각적 표시 */
 
   cursor: pointer; /* 마우스 올리면 클릭 가능 표시 */
 }
 
 /* 반응형 최적화 */
-/* 850px 이하일 때 (태블릿 & 모바일 통합) */
+/* 850px 이하 (태블릿 & 모바일 공통) */
 
 @media (max-width: 850px) {
   .about-set {
-    padding: 56px 32px;
+    padding: 56px 32px; /* 화면 축소에 맞춰 여백 조정 - 피그마 기준 */
     flex-direction: column; /* 가로 배치 → 세로 배치 */
     align-items: flex-start;
   }
 
   .about-card {
-    width: 100%;
+    width: 100%; /* 모바일에서 카드가 화면 너비를 꽉 채움 */
     max-width: none;
   }
 }
 
-/* 모바일 500px 이하일 때 */
+/* 500px 이하 (모바일) - 여백 최소화 */
 @media (max-width: 500px) {
   /* 카드들을 세로로 쌓고 중앙 정렬 */
   .about-set {
-    padding: 40px 24px;
+    padding: 40px 24px; /* 화면 축소에 맞춰 여백 조정 - 피그마 기준 */
   }
 }
