@@ -24,9 +24,11 @@ a {
 /* =================== */
 /* =================== */
 
+/* =================== */
+
 .apply {
   display: flex;
-  padding: 56px 32px;
+  padding: 40px 24px;
   flex-direction: column;
   align-items: flex-start;
   align-self: stretch;
@@ -37,7 +39,7 @@ a {
 
   /* Heading/XXL */
   font-family: Pretendard;
-  font-size: 37.897px;
+  font-size: 28.43px;
   font-style: normal;
   font-weight: 700;
   line-height: 140%; /* 53.056px */
@@ -58,12 +60,6 @@ a {
   align-self: stretch;
 
   /* Label/Large */
-  font-family: Pretendard;
-  font-size: 21.328px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 150%; /* 31.992px */
-
   .welcome-driver {
     color: var(--contents-contentPrimary, #000);
     margin: 0;
@@ -77,8 +73,15 @@ a {
   }
 
   .more_link {
-    color: var(--black);
-    border-bottom: 1px solid var(--contents-contentTertiary, #a6a6a6);
+    color: var(--contents-contentPrimary, #000);
+
+    /* Label/Medium */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 24px */
+    border-bottom: 1px solid black;
   }
 }
 
@@ -91,9 +94,20 @@ fieldset {
   gap: 16px;
   width: 100%;
 
+  legend {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
   /* .field 클래스 중첩 */
   .field {
-    /* 공통: input과 select가 부모 너비에 꽉 차도록 */
+    display: flex;
+    flex-direction: column; /* 메시지를 아래로 보내기 위해 flex 설정 */
+
     input,
     select {
       width: 100%;
@@ -102,6 +116,34 @@ fieldset {
       box-sizing: border-box;
       border: 1px solid var(--border-borderTransparent, rgba(137, 137, 137, 0.3));
       background: var(--tertiary, #f5f5f5);
+      transition: all 0.2s ease; /* 부드러운 색상 전환 */
+
+      /* 사용자가 입력을 마치고 포커스를 뗐는데(blur) 내용이 올바르지 않을 때 */
+      &:user-invalid {
+        border: 1px solid #e22e2e;
+        background: rgba(226, 46, 46, 0.05); /* 투명한 빨간 배경 */
+      }
+    }
+
+    /* 에러 메시지 스타일 */
+    .error-text {
+      display: none; /* 기본적으로 숨김 */
+      color: #e22e2e;
+      font-size: 12px;
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    /* 유효하지 않은 input이 안에 있을 때 에러 메시지 표시 */
+    &:has(input:user-invalid, select:user-invalid) {
+      .error-text {
+        display: block; /* 공간을 차지하며 나타남 */
+      }
+    }
+
+    /* (선택사항) 유효할 때 피드백을 주고 싶다면 */
+    input:user-valid {
+      border-color: #28a745;
     }
 
     &.half {
@@ -112,21 +154,12 @@ fieldset {
       /* 한 줄을 다 차지하도록 설정 */
       grid-column: span 2;
     }
+
+    input {
+      border: 1px solid var(--border-borderTransparent, rgba(137, 137, 137, 0.3));
+      background: var(--tertiary, #f5f5f5);
+    }
   }
-}
-
-legend {
-  position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-}
-
-input {
-  border: 1px solid var(--border-borderTransparent, rgba(137, 137, 137, 0.3));
-  background: var(--tertiary, #f5f5f5);
 }
 
 .agree-message {
@@ -140,13 +173,17 @@ input {
   line-height: 160%; /* 19.205px */
 }
 
-.form-container {
+.login-container {
   display: flex;
   align-items: center;
   gap: 36px;
 
   .join {
-    display: flex;
+    display: block;
+    inline-size: 104px;
+    block-size: 56px;
+    font-style: normal;
+    vertical-align: middle;
     padding: 16px 24px;
     flex-direction: column;
     align-items: flex-start;
@@ -176,5 +213,17 @@ input {
     color: var(--black);
     padding: 4px;
     border-bottom: 1px solid var(--contents-contentTertiary, #a6a6a6);
+  }
+}
+
+.national-select {
+  /* 브라우저 기본 스타일 제거 */
+  -webkit-appearance: none; /* 크롬, 사파리, 엣지 */
+  -moz-appearance: none; /* 파이어폭스 */
+  appearance: none; /* 표준 속성 */
+
+  /* IE 10, 11에서 화살표 숨기기 */
+  &::-ms-expand {
+    display: none;
   }
 }
