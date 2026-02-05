@@ -9,7 +9,8 @@
     <link rel="preload" as="font" href="/font/suit/SUIT-Variable.woff2" />
     <link rel="stylesheet" href="/font/suit/SUIT-Variable.css" />
     <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./taxi-footer.css" />
+    <!-- <link rel="stylesheet" href="./taxi-footer.css" /> -->
+    <link rel="stylesheet" href="/src/taxi-footer/taxi-footer.css" />
   </head>
   <body class="m-50">
     <div class="go-index"><a href="/index.html">Index로 이동</a></div>
@@ -129,20 +130,19 @@
                 <option value="en">English</option>
               </select>
             </section>
-            <section class="footer-settings" aria-label="지역 선택">
-              <div class="select-group">
-                <label for="location-select" class="location-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M18.7 3.7999C15 0.0999024 9.00002 0.0999024 5.30002 3.7999C1.60002 7.4999 1.60002 13.5999 5.30002 17.2999L12 23.9999L18.7 17.1999C22.4 13.5999 22.4 7.4999 18.7 3.7999ZM12 12.4999C10.9 12.4999 10 11.5999 10 10.4999C10 9.3999 10.9 8.4999 12 8.4999C13.1 8.4999 14 9.3999 14 10.4999C14 11.5999 13.1 12.4999 12 12.4999Z" fill="white" />
-                  </svg>
-                  <span class="sr-only"></span>
-                </label>
 
-                <select id="location-select" name="location" class="footer-select">
-                  <option value="seoul" selected>서울</option>
-                  <option value="busan">부산</option>
-                </select>
-              </div>
+            <section class="footer-settings" aria-label="지역 선택">
+              <label for="location-select" class="location-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M18.7 3.7999C15 0.0999024 9.00002 0.0999024 5.30002 3.7999C1.60002 7.4999 1.60002 13.5999 5.30002 17.2999L12 23.9999L18.7 17.1999C22.4 13.5999 22.4 7.4999 18.7 3.7999ZM12 12.4999C10.9 12.4999 10 11.5999 10 10.4999C10 9.3999 10.9 8.4999 12 8.4999C13.1 8.4999 14 9.3999 14 10.4999C14 11.5999 13.1 12.4999 12 12.4999Z" fill="white" />
+                </svg>
+                <span class="sr-only"></span>
+              </label>
+
+              <select id="location-select" name="location" class="footer-select">
+                <option value="seoul" selected>서울</option>
+                <option value="busan">부산</option>
+              </select>
             </section>
           </div>
           <ul class="app-download">
@@ -246,16 +246,16 @@
         </div>
 
         <div class="copyright">
-          <div class="Taxi-info">
+          <div id="Taxi-info">
             <small> &copy; 2022 UT LLC</small>
             <small><address>법인명: UT LLC | 사업자 등록 번호: 166-86-02049 | 회사 대표번호: 080-800-5555 | 대표: White Thomas Darcy | 회사 주소: 서울특별시 중구 삼일대로 343 | 통신판매번호: 2021-서울중구-0976</address></small>
           </div>
-          <div class="Taxi-links">
+          <div id="Taxi-links">
             <small>
-              <a href="/privacy" target="_blank" rel="noopener noreferrer" class="footer-link">개인정보 보호</a>
+              <a href="/" target="_blank" rel="noopener noreferrer" class="footer-link">개인정보 보호</a>
             </small>
             <small>
-              <a href="/terms" target="_blank" rel="noopener noreferrer" class="footer-link">약관</a>
+              <a href="/" target="_blank" rel="noopener noreferrer" class="footer-link">약관</a>
             </small>
           </div>
         </div>
