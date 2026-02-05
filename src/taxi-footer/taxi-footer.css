@@ -1,10 +1,24 @@
 .footer-wrapper {
   background: #000;
   width: 100%;
-
-  /* 마진 상쇄 현상 방지 */
   display: flex;
   overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  min-width: 320px;
+  /* 기본값: 모바일 (500px 미만) */
+  padding: 40px 24px;
+
+  /* 중간: 500px 이상 */
+  @media (width >= 500px) {
+    padding: 56px 32px;
+  }
+
+  /* 웹/데스크탑: 850px 이상 */
+  @media (width >= 850px) {
+    padding: 64px;
+  }
 }
 
 .container-footer {
@@ -12,16 +26,20 @@
   flex-direction: column;
   gap: 64px;
   color: white;
-
   box-sizing: border-box;
+  width: auto;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0;
+  min-height: 576px;
 
-  /* 상하좌우 margin*/
+  @media (width >= 500px) {
+    min-height: 624px;
+  }
 
-  margin: clamp(40px, 4.79vw + 18.35px, 56px) clamp(24px, 2.39vw + 13.17px, 32px);
-
-  /* 최소 높이 설정 */
-
-  min-height: clamp(576px, 28.74vw + 446.1px, 672px);
+  @media (width >= 850px) {
+    min-height: 743px;
+  }
 
   .logo {
     display: flex;
@@ -37,15 +55,22 @@
   }
 
   .footer-menu {
-    /* 1. 가로로 3줄(열)을 균등하게 만듭니다 */
+    /* 모든 구간에서 3열 그리드 유지 */
     display: grid;
     grid-template-columns: repeat(3, auto);
-    column-gap: clamp(16px, 5vw, 200px);
+    width: 100%;
+    justify-content: space-between;
+    column-gap: 16px;
+    @media (width > 500px) {
+      justify-content: start;
+      column-gap: clamp(16px, 10vw, 200px);
+    }
 
     .menu-column {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      min-width: 0;
     }
 
     .menu-title {
@@ -69,42 +94,117 @@
       }
     }
   }
-}
 
-/* 링크 모음 부분 추후 추가적인 수정 필요 */
-.Link-collection {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: clamp(16px, 5vw, 200px);
-  row-gap: 36px;
-  align-items: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  .SNS,
-  .app-download,
-  .footer-settings {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .footer-settings {
-    display: flex;
-    gap: 24px; /* 언어 설정과 지역 설정 사이의 간격 */
-    list-style: none;
-
-    .select-group {
+  /* 링크 모음 부분 추후 추가적인 수정 필요 */
+  .Link-collection {
+    /* 반응형 웹 설정 */
+    @media (width >= 500px) {
       display: flex;
-      align-items: center; /* 아이콘과 글자 세로 중앙 */
-      gap: 6px;
-      list-style: none;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 36px;
+      align-self: stretch;
+    }
+
+    @media (width >= 850px) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      align-self: stretch;
     }
   }
 
-  .footer-select {
+  .copyright {
+    display: flex;
+    flex-direction: column;
+    row-gap: 36px;
+
+    color: #a6a6a6;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 12px;
+    line-height: 160%;
+
+    .Taxi-info {
+      display: grid;
+      /* 카피라이트는 콘텐츠만큼(max-content), 나머지는 남은 공간 전체(1fr) */
+      grid-template-columns: max-content 1fr;
+      column-gap: 36px; /* [카피라이트]와 [주소] 사이 가로 간격 36px */
+      align-items: start;
+
+      small {
+        white-space: nowrap; /* 카피라이트 자체는 한 줄 유지 */
+      }
+
+      address {
+        display: block;
+        font-style: normal !important;
+        margin: 0;
+        /* 한글 줄바꿈을 위해 필수 설정 */
+        word-break: break-all;
+        overflow-wrap: break-word;
+        min-width: 0; /* Grid 내부에서 자식이 넘치는 것 방지 */
+      }
+    }
+
+    .Taxi-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 31px;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        white-space: nowrap;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    /* 데스크톱 설정 (833px 이상) */
+    @media (min-width: 833px) {
+      flex-direction: row;
+      gap: 31px;
+
+      .Taxi-info {
+        display: flex; /* 데스크톱에선 유연하게 flex로 변경 */
+        gap: 31px;
+
+        address {
+          white-space: nowrap; /* 데스크톱에선 한 줄로 */
+        }
+      }
+    }
+  }
+  /* li 앞 .없애기 */
+  .footer-menu,
+  .Link-collection,
+  .copyright {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+/* 언어, 지역 꾸밈 요소들 */
+.select-group {
+  display: flex;
+  align-items: center; /* 아이콘과 글자 세로 중앙 */
+  gap: 6px;
+  list-style: none;
+  #language-select,
+  #location-select {
+    /* 언어, 지역 꾸며주는 CSS */
     appearance: none;
     -webkit-appearance: none;
     background: transparent;
@@ -115,126 +215,22 @@
     margin: 0;
     cursor: pointer;
     outline: none;
-
+    /* option 지우면 안 됨!!! */
     option {
       background-color: white;
       color: black;
     }
   }
-
   svg {
     display: block; /* 인라인 요소 특유의 하단 공백 제거 */
     flex-shrink: 0;
-    fill: currentColor; /* 부모의 글자색(white)을 따라감 */
-  }
-
-  li {
-    list-style: none;
-    list-style-type: none;
-    white-space: nowrap;
-    padding: 0;
-    margin: 0;
-  }
-
-  a {
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-  }
-
-  @media (min-width: 833px) {
-    justify-content: flex-start;
   }
 }
-
-.copyright {
+/* 언어 2줄 문제 해결 */
+.footer-settings {
   display: flex;
-  flex-direction: column;
-  row-gap: 36px;
-
-  color: #a6a6a6;
-  font-family: 'Pretendard', sans-serif;
-  font-size: 12px;
-  line-height: 160%;
-
-  .Taxi-info {
-    display: grid;
-    /* 카피라이트는 콘텐츠만큼(max-content), 나머지는 남은 공간 전체(1fr) */
-    grid-template-columns: max-content 1fr;
-    column-gap: 36px; /* [카피라이트]와 [주소] 사이 가로 간격 36px */
-    align-items: start;
-
-    small {
-      white-space: nowrap; /* 카피라이트 자체는 한 줄 유지 */
-    }
-
-    address {
-      display: block;
-      font-style: normal !important;
-      margin: 0;
-      /* 한글 줄바꿈을 위해 필수 설정 */
-      word-break: break-all;
-      overflow-wrap: break-word;
-      min-width: 0; /* Grid 내부에서 자식이 넘치는 것 방지 */
-    }
-  }
-
-  .Taxi-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 31px;
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      white-space: nowrap;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  /* 데스크톱 설정 (833px 이상) */
-  @media (min-width: 833px) {
-    flex-direction: row;
-    gap: 31px;
-
-    .Taxi-info {
-      display: flex; /* 데스크톱에선 유연하게 flex로 변경 */
-      gap: 31px;
-
-      address {
-        white-space: nowrap; /* 데스크톱에선 한 줄로 */
-      }
-    }
-  }
-}
-/* li 앞 .없애기 */
-.footer-menu,
-.Link-collection,
-.copyright {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  li {
-    list-style: none;
-  }
-
-  a {
-    color: white;
-    text-decoration: none;
-  }
-}
-
-@media (min-width: 786px) {
-  .container-footer {
-    /* 웹에서는 상하좌우가 동일하므로 더 간결하게 */
-
-    margin: clamp(56px, 2.18vw + 38.8px, 64px);
-
-    /* 웹 최소 높이 */
-
-    min-height: clamp(672px, 19.4vw + 519.5px, 743px);
-  }
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
 }
