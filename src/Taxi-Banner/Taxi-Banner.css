@@ -1,13 +1,14 @@
 .container {
-  background: transparent;
-  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
   margin: 40px 24px;
+  min-height: 360px;
 }
 
-.main {
-  display: grid;
-  justify-items: start;
-  align-items: start;
+.inner {
+  position: relative;
+  z-index: 2;
 }
 
 .p {
@@ -17,11 +18,12 @@
 }
 
 .wrapper {
-  width: 150px;
+  width: 120px;
   background: black;
   display: flex;
   align-items: center;
   padding: 16px 24px;
+  z-index: 5;
 }
 
 .download {
@@ -31,6 +33,10 @@
 }
 
 .taxi {
+  width: 520px;
+  height: 280px;
+  background-image: url(./images/UberTaxi.png);
+  background-repeat: no-repeat;
   position: absolute;
   z-index: 1;
 }
